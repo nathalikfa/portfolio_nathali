@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input About Me</title>
+</head>
+
+<body>
+    <h1>Input About Me Section</h1>
+    <form action="../action/upload_aboutMe.php" method="POST" enctype="multipart/form-data">
+        <label for="title">Title:</label><br>
+        <input type="text" name="title" id="title" required><br><br>
+
+        <label for="description">Description:</label><br>
+        <textarea name="description" id="description" rows="5" required></textarea><br><br>
+
+        <label for="image">Image:</label><br>
+        <input type="file" name="image" id="image" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

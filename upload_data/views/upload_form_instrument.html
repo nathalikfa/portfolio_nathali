@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Instrument</title>
+</head>
+
+<body>
+
+    <h2>Input Instrument</h2>
+    <form action="../action/upload_instrument.php" method="POST" enctype="multipart/form-data">
+        <label for="name">Instrument Name:</label>
+        <input type="text" name="name" id="name" required><br><br>
+
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" required></textarea><br><br>
+
+        <label for="image">Choose Image:</label>
+        <input type="file" name="image" id="image" accept="image/*" required><br><br>
+
+        <input type="submit" value="Upload">
+    </form>
+
+</body>
+
+</html>

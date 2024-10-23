@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Section Input Form</title>
+</head>
+
+<body>
+    <h2>Home Section Input Form</h2>
+    <form action="../action/upload_home.php" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" maxlength="255" required>
+        </div>
+
+        <div>
+            <label for="subtitle">Subtitle:</label>
+            <textarea id="subtitle" name="subtitle" rows="4" required></textarea>
+        </div>
+
+        <div>
+            <label for="button_text">Button Text:</label>
+            <input type="text" id="button_text" name="button_text" maxlength="100" required>
+        </div>
+
+        <div>
+             <label for="button_link">Upload CV (PDF)</label>
+             <input type="file" id="button_link" name="button_link" accept="application/pdf" required>
+        </div>
+
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+
+</html>

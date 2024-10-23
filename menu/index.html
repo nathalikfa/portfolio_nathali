@@ -1,0 +1,399 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Nathali's Portfolio</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+        <link rel="icon" type="image/png" href="../assets/images/favicon.ico" />
+
+        <link rel="stylesheet" href="../assets/css/fonticons.css">
+        <link rel="stylesheet" href="../assets/css/slider-pro.css">
+        <link rel="stylesheet" href="../assets/css/stylesheet.css">
+        <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+
+        <!--For Plugins external css-->
+        <link rel="stylesheet" href="../assets/css/plugins.css" />
+
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="../assets/css/style.css">
+
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="../assets/css/responsive.css" />
+
+        <script src="../assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body data-spy="scroll" data-target=".navbar-collapse">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class='preloader'><div class='loaded'>&nbsp;</div></div>
+        <header id="main_menu" class="header navbar-fixed-top">            
+            <div class="main_menu_bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="nave_menu">
+                            <nav class="navbar navbar-default" id="navmenu">
+                                <div class="container-fluid">
+                                    <!-- Brand and toggle get grouped for better mobile display -->
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                        <a class="navbar-brand" href="index.html">
+                                            <img src="../assets/images/logonath.png"/>
+                                        </a>
+                                    </div>
+
+                                    <!-- Collect the nav links, forms, and other content for toggling -->
+
+                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li><a href="aboutme.html">About Me</a></li>
+                                            <li><a href="portfolio.html" role="button" aria-haspopup="true">Portfolio</a>
+                                            </li>       
+                                            <li><a href="article.html" role="button" aria-haspopup="true">My Articles</a>
+                                            </li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>    
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>	
+                    </div>
+                </div>
+            </div>
+        </header> <!--End of header -->
+
+        <!-- Home Section -->
+        <section id="home" class="home">
+            <div id="particles-js"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 ">
+                        <div class="main_home_slider text-center" id="homeSlider"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End of Home Section -->
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                axios.get('http://localhost/portfolio_nathali/api/api_home.php')  // Ganti dengan path endpoint API
+                    .then(function (response) {
+                        const homeData = response.data;
+                        let homeSlider = document.getElementById('homeSlider');
+                        homeSlider.innerHTML = ''; // Kosongkan slider sebelum menambahkan data baru
+
+                        homeData.forEach(function (slide) {
+                            let slideHTML = `
+                            <div class="single_home_slider">
+                            <div class="home-overlay"></div>
+                            <div class="main_home wow fadeInUp" data-wow-duration="700ms"> 
+                                <h2>${slide.title}</h2>
+                                <div class="separator"></div>
+                                <p class="subtitle">${slide.subtitle}</p>
+                                <div class="home_btn">
+                                    <a href="../assets/files/${slide.button_link}" class="btn">${slide.button_text}</a>
+                                </div>
+                            </div>
+                            </div>
+                            `;
+
+                            homeSlider.innerHTML += slideHTML;
+                        });
+                    })
+                    .catch(function (error) {
+                        console.error('Error fetching home section data:', error);
+                    });
+            });
+        </script>
+
+        <!-- Work Section -->
+        <section id="work" class="work sections">
+            <div class="container">
+                <div class="row">
+                    <div class="main_mix_content text-center">
+                        <div class="head_title">
+                            <h1>My Best Achievement</h1>
+                        </div><!-- End of head title -->
+        
+                        <div id="mixcontent" class="mixcontent text-center d-flex flex-wrap justify-content-center"></div>
+                    </div>
+                </div><!-- End of row -->
+            </div><!-- End of Contaier -->
+        </section><!-- End of portfolio Section -->
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Mengambil data dari API
+                axios.get('http://localhost/portfolio_nathali/api/api_get_works.php') // Sesuaikan path API
+                    .then(function (response) {
+                        const worksData = response.data;
+                        let mixContent = document.getElementById('mixcontent');
+
+                        // Bersihkan konten lama
+                        mixContent.innerHTML = '';
+
+                        // Loop melalui setiap data karya
+                        worksData.forEach(function (work, index) {
+                            let workHTML = `
+                            <div class="col-sm-4 col-xs-12 mb-3">
+                                <div class="single_mixi_portfolio">
+                                    <img src="../assets/images/${work.image}" alt="${work.name}" class="img-fluid" />
+                                    <div class="single_work_overlay">
+                                        <h4>${work.name}</h4>
+                                        <div class="separator"></div>
+                                        <p>${work.title}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            `;
+
+                            // Tambahkan ke konten
+                            mixContent.innerHTML += workHTML;
+
+                            // Tambahkan clearfix setiap 3 item untuk tata letak yang rapi
+                            if ((index + 1) % 3 === 0) {
+                                mixContent.innerHTML += '<div class="clearfix"></div>';
+                            }
+                        });
+                    })
+                    .catch(function (error) {
+                        console.error('Error fetching works data:', error);
+                    });
+            });
+        </script>
+
+        <section id="team" class="team colorsbg sections">
+            <div class="container">
+                <div class="row">
+                    <div class="main_team_area">
+                        <div class="head_title text-center">
+                            <h1>My Major</h1>
+                        </div><!-- End of head title -->
+        
+                        <!-- Carousel Container -->
+                        <div id="instrument-carousel" class="owl-carousel owl-theme">
+                            <!-- Konten akan dimasukkan melalui JavaScript -->
+                        </div>
+                    </div>
+                </div><!-- End of row -->
+            </div><!-- End of Container -->
+        </section><!-- End of portfolio Section -->
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                axios.get('http://localhost/portfolio_nathali/api/api_get_instrument.php')
+                    .then(function (response) {
+                        const instrumentsData = response.data;
+                        let instrumentCarousel = document.getElementById('instrument-carousel');
+
+                        // Bersihkan konten lama
+                        instrumentCarousel.innerHTML = '';
+
+                        // Loop melalui setiap data instrumen
+                        instrumentsData.forEach(function (instrument) {
+                            let instrumentHTML = `
+                            <div class="item">
+                                <div class="team">
+                                    <img class="img-circle" src="../assets/images/${instrument.image}" alt="${instrument.name}" />
+                                    <h4 class="instrument-name">${instrument.name}</h4>
+                                    <div class="separator"></div>
+                                    <p class="instrument-description">${instrument.description}</p>
+                                </div>
+                            </div>
+                        `;
+
+                        // Tambahkan konten instrumen ke carousel
+                        instrumentCarousel.innerHTML += instrumentHTML;
+                        });
+
+                        // Inisialisasi Owl Carousel
+                        $('#instrument-carousel').owlCarousel({
+                            loop: true,
+                            margin: 10,
+                            nav: false, // Sembunyikan panah navigasi
+                            dots: true, // Tampilkan indikator bawah
+                            responsive: {
+                                0: {
+                                    items: 1
+                                },
+                                600: {
+                                    items: 2
+                                },
+                                1000: {
+                                    items: 3 // Tampilkan 3 item dalam satu baris
+                                }
+                            }
+                        });
+                    })
+                    .catch(function (error) {
+                        console.error('Error fetching instrument data:', error);
+                    });
+            });
+        </script>
+        
+        <!-- footer Section -->
+        <footer id="footer" class="footer">
+            <div class="container">
+                <div class="main_footer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="contact_socail transition">
+                                <a href="https://www.linkedin.com/in/nathali-katrin-fredeline-abarua-379241286/"><i class="fa fa-linkedin img-circle"></i></a>
+                                <a href="https://github.com/nathalikfa"><i class="fa fa-github img-circle"></i></a>
+                                <a href="https://www.instagram.com/nathali.katrin"><i class="fa fa-instagram img-circle"></i></a>
+                            </div>
+                            <div class="copyright_text text-center">
+                                <p class=" wow fadeInRight" data-wow-duration="1s">Made with <i class="fa fa-heart"></i> by <a target="_blank">Nathali Katrin</a>2024. All Rights Reserved</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End of container -->
+        </footer><!-- End of footer -->
+
+        <!-- START SCROLL TO TOP  -->
+
+        <div class="scrollup">
+            <a href="#"><i class="fa fa-chevron-up"></i></a>
+        </div>
+
+        <script src="../assets/js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="../assets/js/vendor/bootstrap.min.js"></script>
+
+        <script src="../assets/js/jquery.easing.1.3.js"></script>
+        <script src="../assets/js/masonry/masonry.min.js"></script>
+        <script type="text/javascript">
+            $('.mixcontent').masonry();
+        </script>
+
+        <script src="../assets/js/jquery.sliderPro.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function ($) {
+                $('#example3').sliderPro({
+                    width: 960,
+                    height: 200,
+                    fade: true,
+                    arrows: false,
+                    buttons: true,
+                    fullScreen: false,
+                    shuffle: true,
+                    smallSize: 500,
+                    mediumSize: 1000,
+                    largeSize: 3000,
+                    thumbnailArrows: true,
+                    autoplay: false,
+                    thumbnailsContainerSize: 960
+
+                });
+            });
+        </script>
+        <script src="../assets/js/plugins.js"></script>
+        <script src="../assets/js/main.js"></script>
+        <!-- Owl Carousel JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        
+        <script>
+           // Inisialisasi particles.js setelah semua elemen selesai dimuat
+            window.onload = function () {
+                initializeParticles();
+            };
+
+            // Inisialisasi particles.js
+            function initializeParticles() {
+                particlesJS('particles-js', {
+                    "particles": {
+                        "number": {
+                            "value": 80,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "shape": {
+                            "type": "image",
+                            "image": {
+                                "src": "../assets/images/melody.png", // Pastikan path gambar benar
+                                "width": 50,
+                                "height": 50
+                            }
+                        },
+                        "opacity": {
+                            "value": 0.8,
+                            "random": true
+                        },
+                        "size": {
+                            "value": 25,
+                            "random": true
+                        },
+                        "line_linked": {
+                            "enable": false
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 3,
+                            "direction": "none",
+                            "random": true,
+                            "out_mode": "out",
+                            "bounce": false
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "grab"
+                            },
+                            "onclick": {
+                                "enable": true,
+                                "mode": "push"
+                            }
+                        },
+                        "modes": {
+                            "grab": {
+                                "distance": 200,
+                                "line_linked": {
+                                    "opacity": 1
+                                }
+                            },
+                            "push": {
+                                "particles_nb": 4
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            }
+
+            // Tambahkan event listener untuk window resize agar partikel tetap responsif
+            window.addEventListener('resize', function () {
+                const particlesElement = document.getElementById('particles-js');
+                if (particlesElement) {
+                    particlesElement.innerHTML = ''; // Bersihkan elemen partikel
+                }
+                initializeParticles();
+            });
+        </script>
+    </body>
+</html>
