@@ -96,7 +96,7 @@
 
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                axios.get('http://localhost/portfolio_nathali/api/api_home.php')  // Ganti dengan path endpoint API
+                axios.get('http://nathali.inf-upj.my.id/portfolio_nathali/api/api_home.php')  // Ganti dengan path endpoint API
                     .then(function (response) {
                         const homeData = response.data;
                         let homeSlider = document.getElementById('homeSlider');
@@ -144,7 +144,7 @@
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 // Mengambil data dari API
-                axios.get('http://localhost/portfolio_nathali/api/api_get_works.php') // Sesuaikan path API
+                axios.get('http://nathali.inf-upj.my.id/portfolio_nathali/api/api_get_works.php') // Sesuaikan path API
                     .then(function (response) {
                         const worksData = response.data;
                         let mixContent = document.getElementById('mixcontent');
@@ -201,7 +201,7 @@
         
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                axios.get('http://localhost/portfolio_nathali/api/api_get_instrument.php')
+                axios.get('http://nathali.inf-upj.my.id/portfolio_nathali/api/api_get_instrument.php')
                     .then(function (response) {
                         const instrumentsData = response.data;
                         let instrumentCarousel = document.getElementById('instrument-carousel');

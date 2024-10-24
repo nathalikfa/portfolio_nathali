@@ -113,7 +113,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            axios.get('http://localhost/portfolio_nathali/api/api_get_aboutMe.php')
+            axios.get('http://nathali.inf-upj.my.id/portfolio_nathali/api/api_get_aboutMe.php')
                 .then(function (response) {
                     const data = response.data;
 
@@ -143,7 +143,7 @@
 
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                axios.get('http://localhost/portfolio_nathali/api/api_get_education.php')
+                axios.get('http://nathali.inf-upj.my.id/portfolio_nathali/api/api_get_education.php')
                     .then(function (response) {
                         const educations = response.data;
                         let educationHtml = '';
@@ -188,7 +188,7 @@
         
         <script>
             // Mengambil gambar dari API
-            axios.get('http://localhost/portfolio_nathali/api/api_get_gallery.php')
+            axios.get('http://nathali.inf-upj.my.id/portfolio_nathali/api/api_get_gallery.php')
                 .then(function (response) {
                     const images = response.data;
                     let imageHtml = '';

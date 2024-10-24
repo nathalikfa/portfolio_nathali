@@ -95,7 +95,7 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            axios.get('http://localhost/portfolio_nathali/api/api_get_portfolio.php')
+            axios.get('http://nathali.inf-upj.my.id/portfolio_nathali/api/api_get_portfolio.php')
                 .then(function (response) {
                     const portfolioItems = response.data;
                     let portfolioHtml = '';
